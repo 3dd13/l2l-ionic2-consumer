@@ -1,0 +1,24 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Talk to Experts</ion-title>
+</ion-navbar>
+
+<ion-content>
+
+  <div class="matching-status-container">
+    <div class="matching-status">
+      <div padding primary>
+        <h3>Matching ...</h3>
+      </div>
+
+      <div padding>
+        <button danger (click)="doCancel()">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+
+</ion-content>

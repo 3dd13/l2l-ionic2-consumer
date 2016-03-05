@@ -1,0 +1,44 @@
+.chatroom-show-page {
+  .chatbubble ion-col {
+    background-color: #EEE;
+    margin: 10px 0;
+    padding: 10px;
+    min-width: 30%;
+    max-width: 70%;
+
+    border: solid 1px #EEE;
+    border-radius: 10px;
+
+
+    p {
+      margin: 3px 0;
+    }
+  }
+
+  ion-row.chatbubble.provider {
+    text-align: right;
+    align-items: flex-end;
+    justify-content: flex-end;
+
+    ion-col {
+      background-color: #E0F0FF;
+    }
+  }
+
+  .chatbubble.consumer {
+    text-align: left;
+
+    ion-col {
+      background-color: #FFFFE0;
+    }
+  }
+
+  ion-toolbar[position="bottom"] {
+    border-top: solid 1px #CCC;
+    min-height: 100px;
+
+    button {
+      margin: 30px 0;
+    }
+  }
+}

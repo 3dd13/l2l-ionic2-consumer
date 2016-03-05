@@ -1,6 +1,6 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {Http, RequestMethod} from 'angular2/http';
-import {ProviderIndexPage} from '../../provider/index/index';
+import {MatchingIndexPage} from '../../matching/index/index';
 
 
 @Page({
@@ -43,8 +43,10 @@ export class SearchResultIndexPage {
     )
   }
 
-  goToProviderIndexPage() {
-    this.nav.push(ProviderIndexPage);
+  goToMatchingIndexPage() {
+    this.nav.push(MatchingIndexPage, {
+      question: this.question
+    });
   }
 
   itemTapped(event, item) {

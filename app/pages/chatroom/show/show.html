@@ -1,0 +1,56 @@
+
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>{{ provider.name }}</ion-title>
+</ion-navbar>
+
+<ion-content padding>
+
+  <ion-row class="chatbubble provider">
+    <ion-col>
+      <div class="chat-message">
+        <p>Hello ! this is {{ provider.name }}.</p>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="chatbubble consumer">
+    <ion-col>
+      <div class="chat-message">
+        <p>Hi, I have a question about <strong>{{ question.subject }}</strong>.</p>
+        <p>{{ question.text }}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+
+  <ion-row
+    *ngFor="#message of messages"
+    class="chatbubble"
+    [class.consumer]="message.from === 'consumer'"
+    [class.provider]="message.from === 'provider'">
+    <ion-col>
+      <div class="chat-message">
+        <p>{{ message.text }}</p>
+        <p>{{ message.inserted_at }}</p>
+      </div>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
+
+<ion-toolbar position="bottom" light-grey>
+  <ion-row>
+    <ion-col width-80>
+      <ion-textarea rows="5" placeholder="type your message here ...">
+      </ion-textarea>
+    </ion-col>
+    <ion-col width-20>
+      <button primary>
+        Send
+      </button>
+    </ion-col>
+  </ion-row>
+
+</ion-toolbar>
