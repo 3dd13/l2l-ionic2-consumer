@@ -1,0 +1,34 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Search Result</ion-title>
+</ion-navbar>
+
+<ion-content>
+  <ion-list>
+    <button ion-item *ngFor="#item of items" (click)="itemTapped($event, item)" class="search-result-item">
+      <div>
+        {{item.snippet}}
+      </div>
+
+      <p class="item-url">
+        <ion-icon name="link" item-left></ion-icon>
+
+        {{item.url}}
+      </p>
+
+    </button>
+  </ion-list>
+</ion-content>
+
+<ion-toolbar position="bottom" light-grey>
+  <p class="helper-text">Not what you need ?</p>
+
+  <ion-buttons end>
+    <button primary (click)="goToProviderIndexPage()">
+      Talk to Experts
+      <ion-icon name="chat"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>

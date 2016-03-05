@@ -1,0 +1,14 @@
+.question-new-page {
+  .item {
+    color: map-get($colors, primary);
+  }
+
+  .item-input ion-label, .item-select ion-label {
+    font-size: 1.5rem;
+    color: black;
+  }
+
+  .item-input input {
+    padding: 0 16px;
+  }
+}

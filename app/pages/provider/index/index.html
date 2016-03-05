@@ -1,0 +1,25 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Providers</ion-title>
+</ion-navbar>
+
+<ion-content>
+  <div class="toolbar-message">
+    <h4>Don't worry</h4>
+    <p>Here we have some specialists</p>
+  </div>
+
+  <ion-list>
+    <button ion-item *ngFor="#provider of providers" (click)="providerTapped($event, provider)">
+      <ion-avatar item-left>
+        <img src="http://placehold.it/50x50">
+      </ion-avatar>
+
+      <h2>{{provider.name}}</h2>
+
+      <p>{{provider.description}}</p>
+    </button>
+  </ion-list>
+</ion-content>

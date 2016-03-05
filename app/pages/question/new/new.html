@@ -1,0 +1,39 @@
+
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>Ask L2L</ion-title>
+</ion-navbar>
+
+<ion-content>
+
+  <ion-list>
+
+    <ion-item primary>
+      <ion-label stacked>
+        What do you want to know ?
+      </ion-label>
+      <ion-input
+        type="text"
+        [(ngModel)]="question.text"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label stacked>Pick a subject</ion-label>
+      <ion-select
+        [(ngModel)]="question.subject">
+        <ion-option value="family">Family</ion-option>
+        <ion-option value="friendship">Friendship</ion-option>
+        <ion-option value="academic">Academic</ion-option>
+        <ion-option value="sex">Sex</ion-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <div padding>
+    <button primary block (click)="doCreate()">Send</button>
+  </div>
+
+</ion-content>
