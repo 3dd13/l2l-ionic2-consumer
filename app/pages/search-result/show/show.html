@@ -1,0 +1,28 @@
+<ion-navbar *navbar>
+  <button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+  <ion-title>{{ searchResult.title }}</ion-title>
+</ion-navbar>
+
+<ion-content>
+  <iframe src="{{ searchResult.url }}"></iframe>
+</ion-content>
+
+<ion-toolbar position="bottom" light-grey>
+  <p class="helper-text">Is this article helpful ?</p>
+
+  <ion-row>
+    <ion-col width-25>
+      <button secondary block (click)="goToMatchingIndexPage()">
+        Y
+      </button>
+    </ion-col>
+
+    <ion-col width-25 offset-50>
+      <button dark block (click)="goToMatchingIndexPage()">
+        N
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-toolbar>

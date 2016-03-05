@@ -1,6 +1,7 @@
 import {Page, NavController, NavParams} from 'ionic-angular';
 import {Http, RequestMethod} from 'angular2/http';
 import {MatchingIndexPage} from '../../matching/index/index';
+import {SearchResultShowPage} from '../show/show';
 
 
 @Page({
@@ -22,8 +23,8 @@ export class SearchResultIndexPage {
 
   // TODO change to service injectable
   _doSearch(question) {
-    const googleApiKey = 'YOUR_GOOGLE_API_KEY';
-    const customSearchEngine = 'YOUR_CSE_ID';
+    const googleApiKey = '';
+    const customSearchEngine = '';
     const queryString = question.text + ' ' + question.subject;
     const searchUrl = `https://www.googleapis.com/customsearch/v1?key=${googleApiKey}&cx=${customSearchEngine}&q=${queryString}`;
     const options = {
@@ -36,7 +37,7 @@ export class SearchResultIndexPage {
           return {
             title: item.title,
             snippet: item.snippet,
-            url: item.formattedUrl
+            url: this._formatUrl(item.formattedUrl)
           }
         })
       }
@@ -52,6 +53,16 @@ export class SearchResultIndexPage {
   itemTapped(event, item) {
     // TODO opens in inappbrowser
     // cordova.InAppBrowser.open(item.url, "_system", "location=true");
-    window.location = item.url;
+    this.nav.push(SearchResultShowPage, {
+      searchResult: item
+    });
+  }
+
+  _formatUrl(url) {
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      return `http://${url}`;
+    } else {
+      return url;
+    }
   }
 }
